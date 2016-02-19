@@ -23,9 +23,9 @@ cp -Rf /tmp/src/. ./
 
 echo "---> Building your Node application from source"
 npm config set strict-ssl false
-npm config set registry http://r.cnpmjs.org
+#npm config set registry http://r.cnpmjs.org
 
-npm install -d
+npm install -d -g cnpm --registry=http://r.cnpmjs.org
 
 # Fix source directory permissions
 fix-permissions ./
