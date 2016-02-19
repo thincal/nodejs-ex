@@ -18,17 +18,17 @@ set -e
 # Link the modules
 #npm link $module_list
 
-alias cnpm="npm --registry=http://registry.npm.taobao.org \
---cache=$HOME/.npm/.cache/cnpm \
---disturl=http://registry.npm.taobao.org/mirrors/node \
---userconfig=$HOME/.cnpmrc"
+#alias cnpm="npm --registry=http://registry.npm.taobao.org \
+#--cache=$HOME/.npm/.cache/cnpm \
+#--disturl=http://registry.npm.taobao.org/mirrors/node \
+#--userconfig=$HOME/.cnpmrc"
 
 echo "---> Installing application source"
 cp -Rf /tmp/src/. ./
 
 echo "---> Building your Node application from source"
-#npm config set strict-ssl false
-cnpm install -d 
+npm config set strict-ssl false
+npm install -d --registry=http://registry.npm.taobao.org 
 
 # Fix source directory permissions
 fix-permissions ./
